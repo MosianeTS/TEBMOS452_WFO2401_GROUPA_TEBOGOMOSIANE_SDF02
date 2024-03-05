@@ -1,0 +1,178 @@
+/*Setting the dimensions of elements to include padding and borders*/
+* {
+  box-sizing:border-box;
+}
+
+body {
+  background: #eeefed;
+}
+
+h1 {  
+  text-align: center;
+  color: #353535;
+  font-size: 3.5em;
+  font-weight: 300;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  text-align: center;
+  font-size: 18px;
+  color: #676767;
+}
+
+.frame {
+  width: 90%;
+  height: 100px;
+  margin: 30px auto;
+  text-align: center;  
+}
+
+button {
+  margin: 30px;
+}
+
+/*styling for all buttons*/
+.custom-btn {
+  width: 160px;
+  height: 42px;  
+  color: white;
+  border-radius: 5px;  
+  padding: 10px 25px; /*top and bottom padding set to 10px while left and right padding set to 25px*/
+  font-family: 'Lato', sans-serif;
+  font-weight: 550;  
+  font-size: 17px;
+  text-decoration: none;
+  text-align: center;
+  display: inline-block;   
+  position:relative;
+  cursor:pointer;   /*when you hover over the button, the cursor turns to an index finger pointer*/
+  background:transparent;
+  transition: all 0.6s ease; /*All property values to gradually change within 0.6s using the ease transition function*/
+}
+
+/*btn-1*/
+.btn-1 {  
+  background:  #130f40; 
+  border:none;
+  color:white;
+}
+
+/*As you hover over btn-1, the button grows in size and a box shadow is implemented. A border is also implemented*/
+.btn-1:hover {   
+   border: 2px solid #f9ca24;
+   transform: scale(1.1,1.2);
+   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),
+               0 17px 50px 0 rgba(0,0,0,0.19);  
+}
+
+/* Animation of background-color */
+/* Background color of button changes indefitely */
+@keyframes bgcolor {
+  from {background-color: #130f40;}
+  to {background-color: #81ecec;}
+}
+
+/* The element to apply the animation to */
+.btn-1 {    
+  animation-name: bgcolor;
+  animation-duration: 3s;
+  animation-iteration-count: infinite; /* The animation continues indefinitely */
+}
+
+/*When btn-1 is clicked, it will move down by 4px, giving the illusion of a pushed down button*/
+.btn-1:active {
+  background-color: #3e8e41;  
+  transform: translateY(4px);
+}
+
+/*btn-2*/
+.btn-2 {
+  background: rgb(76,154,86);   
+  background-image: linear-gradient(to right, #00b894, #f1c40f, #a29bfe, #74b9ff);
+  box-shadow:  5px 5px 12px 0 rgba(35,255,255,.5);  /*5px vertical and horizontal offset with a 12px blur radius and no spread radius*/
+  border:none;
+}
+
+/*As you hover over btn-2, these styles are applied*/
+.btn-2:hover {
+   background: rgb(60,13,155);
+   box-shadow:none;
+   background: transparent;
+   border: 2px solid rgba(35,255,255,.5);
+   color: blue;
+   transform: scaleX(1.1);  /*Button increases along the x-axis*/
+}
+/*When btn-2 is clicked, it will move down by 4px, giving the illusion of a pushed down button*/
+.btn-2:active {
+  background-color: #3e8e41;  
+  transform: translateY(4px);
+}
+
+/*btn-3*/
+.btn-3 {
+  width: 160px;
+  height: 42px; 
+  background:linear-gradient(to right, #0984e3, #81ecec);  
+  border:none;
+  box-shadow: 0 0 0 0 #2980b9 inset; /*internal shadow with no offset, no blur radius and no spread radius*/
+  transition: ease-in 0.5s;  /*transition effect with a slow start lasting for 0.5 seconds*/
+}
+
+/*As you hover over btn-3, these styles are applied*/
+.btn-3:hover {
+   background: #2980b9;
+   color: #eb4d4b;
+   font-size: 19px;
+   box-shadow:  160px 0 0 0 rgba(35,255,255,.5) inset; /*internal shadow that gradually covers the entire width of the button*/    
+   transform: skewX(5deg);    /*button is skewed at 5 degrees along the x-axis button*/
+}
+
+/*Pseudo element that appears at the top of the button*/
+.btn-3::before {
+  content:'';  /*Left blank for the purpose of creating only a rectangular block*/
+  position: absolute;  
+  width: 0;   
+  top: 0px;
+  opacity: 0;  /*The pseudo element is invisible at first before the user hover overs the button*/
+  left: 0;
+  height: 3px;
+  transition: all 1s ease; /*Gradual transition of the pseudo element from 0% width to 100% width in 1 second*/
+  background-color: #eb4d4b;
+}
+
+/*Pseudo element that appears at the bottom of the button*/
+.btn-3::after {
+  content:'';  
+  position: absolute;  
+  width: 0;  
+  display: block;
+  bottom: -3px;
+  left: 0;
+  opacity: 0;  
+  height: 1.5px; 
+  transition: all 1s ease;
+  background-color: #eb4d4b;
+}
+
+.btn-3:hover::before {
+  opacity: 1;  /*The pseudo element appears when the user hover overs the button*/
+  width: 100%;  /*The pseudo element gradually increases to a width of 100%*/
+}
+
+.btn-3:hover::after {
+  opacity: 1;
+  width: 100%;
+}
+
+/*During this project, I tried to incorporate everything I learned, from transitions, to animations. I chose to use similar looking colors for a more
+consistent look and feel. I chose to apply no borders to make the buttons appear clean at first.
+I also chose to include transformations on the buttons to draw user attention and to enhance user experience.*/
+
+/*I had difficulty animating other properties besides the background color animation I have on btn-1. With more practice, I can definitely do better*/
+
+/*I also added click effects to improve user experience and interactivity and to provide a pleasant browsing experience*/
+
+/*During this project, I had a difficult time understanding how the pseudo-elements "::before" and "::after" work as seen on the reference code. After some more research, I got a better understanding of these elements.*/
